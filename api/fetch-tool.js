@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
-  // Header CORS
+  // Mengaktifkan Header CORS agar web lancar diakses dari domain vercel
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -19,27 +19,27 @@ module.exports = async (req, res) => {
   const { endpoint, paramName, value } = req.query;
 
   if (!endpoint || !paramName || !value) {
-    return res.status(400).json({ error: true, message: "Parameter tidak lengkap." });
+    return res.status(400).json({ error: true, message: "Parameter input tidak lengkap." });
   }
 
   try {
-    const targetUrl = `https://api.xvortex.biz.id${endpoint}?${paramName}=${encodeURIComponent(value)}`;
+    // SEKARANG MENGGUNAKAN BASE URL BARU: api.xvortex.my.id
+    const targetUrl = `https://api.xvortex.my.id${endpoint}?${paramName}=${encodeURIComponent(value)}`;
     
-    // Set timeout atau simpan response asli
     const apiResponse = await fetch(targetUrl, { 
       method: 'GET',
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'
       }
     });
 
-    // Validasi apakah responnya berupa teks biasa (HTML Eror) atau JSON asli
+    // Cek apakah response berupa JSON atau bukan
     const contentType = apiResponse.headers.get("content-type");
     if (!contentType || !contentType.includes("application/json")) {
       const textError = await apiResponse.text();
       return res.status(502).json({ 
         error: true, 
-        message: `API Pusat tidak mengirim JSON. Server luar merespon: ${textError.substring(0, 150)}...` 
+        message: `Server API luar tidak merespon dengan JSON. Respon teks: ${textError.substring(0, 100)}...` 
       });
     }
 
@@ -47,6 +47,6 @@ module.exports = async (req, res) => {
     return res.status(200).json(data);
 
   } catch (error) {
-    return res.status(500).json({ error: true, message: `Gagal menyambung ke API: ${error.message}` });
+    return res.status(500).json({ error: true, message: `Gagal menghubungkan ke API baru: ${error.message}` });
   }
 };
