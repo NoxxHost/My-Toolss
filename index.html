@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyy's Tools Web</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glow-effect:hover {
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+      border-color: rgba(99, 102, 241, 0.6);
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #312e81; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #4338ca; }
+  </style>
+</head>
+<body class="text-slate-100 min-h-screen overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-md px-6 py-4 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3" data-aos="fade-right">
+        <div class="bg-indigo-600 p-2.5 rounded-xl shadow-lg shadow-indigo-500/30 animate-pulse">
+          <i class="fa-solid fa-wand-magic-sparkles text-xl text-white"></i>
+        </div>
+        <span class="text-xl font-extrabold tracking-wide bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          KYY'S TOOLS
+        </span>
+      </div>
+      <div class="text-sm font-medium text-slate-400 bg-white/5 px-4 py-1.5 rounded-full border border-white/5" data-aos="fade-left">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-ping"></span> Active Web
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-12 relative z-10">
+    
+    <div class="text-center mb-16" data-aos="zoom-in" data-aos-duration="1000">
+      <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight leading-none">
+        Semua Alat Dalam <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Satu Genggaman</span>
+      </h1>
+      <p class="text-slate-400 max-w-2xl mx-auto text-base md:text-lg">
+        Nikmati kumpulan tools AI, Downloader, dan Gambar premium super lancar dengan performa kilat dan animasi modern.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      
+      <div class="glass-card p-6 rounded-2xl glow-effect transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" data-aos="fade-up" onclick="openModal('ai-gemini', 'AI Gemini Chat', 'fa-robot', 'Ketik pertanyaan atau perintah untuk AI Gemini.')">
+        <div class="flex items-start justify-between mb-4">
+          <div class="bg-indigo-500/10 p-3 rounded-xl text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-robot text-2xl"></i>
+          </div>
+          <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider bg-indigo-500/10 px-2.5 py-1 rounded-full">Artificial Intelligence</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-white">AI Gemini</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Asisten AI pintar untuk menjawab semua pertanyaanmu secara instan dan cerdas.</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl glow-effect transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" data-aos="fade-up" data-aos-delay="50" onclick="openModal('dl-tiktok', 'TikTok Downloader', 'fa-video', 'Masukkan URL video TikTok yang ingin diunduh.', true)">
+        <div class="flex items-start justify-between mb-4">
+          <div class="bg-cyan-500/10 p-3 rounded-xl text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-video text-2xl"></i>
+          </div>
+          <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider bg-cyan-500/10 px-2.5 py-1 rounded-full">Downloader</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-white">TikTok Downloader</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Unduh video favorit dari TikTok tanpa watermark dengan kualitas HD terbaik.</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl glow-effect transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" data-aos="fade-up" data-aos-delay="100" onclick="openModal('dl-pinterest', 'Pinterest Downloader', 'fa-circle-down', 'Masukkan URL gambar/video Pinterest untuk mendownload.', true)">
+        <div class="flex items-start justify-between mb-4">
+          <div class="bg-red-500/10 p-3 rounded-xl text-red-400 group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-circle-down text-2xl"></i>
+          </div>
+          <span class="text-xs font-bold text-red-400 uppercase tracking-wider bg-red-500/10 px-2.5 py-1 rounded-full">Downloader</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-white">Pinterest Downloader</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Ambil media langsung dari tautan Pinterest dengan resolusi penuh.</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl glow-effect transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" data-aos="fade-up" data-aos-delay="150" onclick="openModal('s-pinterest', 'Pinterest Search', 'fa-magnifying-glass', 'Ketik kata kunci gambar yang ingin dicari di Pinterest.')">
+        <div class="flex items-start justify-between mb-4">
+          <div class="bg-rose-500/10 p-3 rounded-xl text-rose-400 group-hover:bg-rose-500 group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+          </div>
+          <span class="text-xs font-bold text-rose-400 uppercase tracking-wider bg-rose-500/10 px-2.5 py-1 rounded-full">Search</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-white">Pinterest Search</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Cari ide estetika dan gambar menarik langsung dari database Pinterest.</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl glow-effect transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" data-aos="fade-up" data-aos-delay="200" onclick="openModal('img2prompt', 'Image to Prompt', 'fa-wand-magic', 'Masukkan URL Gambar untuk diekstrak menjadi prompt AI.', true)">
+        <div class="flex items-start justify-between mb-4">
+          <div class="bg-emerald-500/10 p-3 rounded-xl text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-wand-magic text-2xl"></i>
+          </div>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider bg-emerald-500/10 px-2.5 py-1 rounded-full">Tools</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-white">Image to Prompt</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Ubah file gambar milikmu menjadi deskripsi teks prompt AI yang detail.</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl glow-effect transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" data-aos="fade-up" data-aos-delay="250" onclick="openModal('removebg', 'Remove Background', 'fa-eraser', 'Masukkan URL Gambar untuk menghapus background belakangnya.', true)">
+        <div class="flex items-start justify-between mb-4">
+          <div class="bg-amber-500/10 p-3 rounded-xl text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-eraser text-2xl"></i>
+          </div>
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-wider bg-amber-500/10 px-2.5 py-1 rounded-full">Editor</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-white">Remove Background</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Hapus latar belakang foto otomatis secara rapi dalam hitungan detik.</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl glow-effect transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group" data-aos="fade-up" data-aos-delay="300" onclick="openModal('tofigure', 'To Figure Image', 'fa-bezier-curve', 'Masukkan URL Gambar untuk dikonversi menjadi sketsa/figur.', true)">
+        <div class="flex items-start justify-between mb-4">
+          <div class="bg-fuchsia-500/10 p-3 rounded-xl text-fuchsia-400 group-hover:bg-fuchsia-500 group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-bezier-curve text-2xl"></i>
+          </div>
+          <span class="text-xs font-bold text-fuchsia-400 uppercase tracking-wider bg-fuchsia-500/10 px-2.5 py-1 rounded-full">Editor</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-white">To Figure Image</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">Ubah foto biasa menjadi gaya bentuk/figur artistik yang unik.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="toolModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-lg flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+    <div class="glass-card w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-white/10 transform scale-95 transition-transform duration-300 flex flex-col max-h-[90vh]">
+      
+      <div class="flex items-center justify-between p-6 border-b border-white/10 bg-white/5">
+        <div class="flex items-center gap-3">
+          <div id="modalIconContainer" class="p-2.5 bg-indigo-500/20 text-indigo-400 rounded-xl">
+            <i id="modalIcon" class="fa-solid fa-robot text-xl"></i>
+          </div>
+          <h2 id="modalTitle" class="text-xl font-extrabold text-white">Tool Title</h2>
+        </div>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 p-2 rounded-full transition-all">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-6 overflow-y-auto flex-1">
+        <p id="modalDescription" class="text-slate-400 text-sm">Description text goes here.</p>
+        
+        <div class="space-y-2">
+          <label id="inputLabel" class="text-xs font-bold uppercase tracking-wider text-slate-400">Masukkan Input</label>
+          <div class="relative">
+            <input type="text" id="toolInput" class="w-full bg-slate-900/60 border border-white/10 rounded-xl py-3.5 pl-4 pr-12 text-slate-100 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all text-sm" placeholder="Ketik sesuatu di sini...">
+            <button onclick="clearInput()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <button onclick="executeTool()" id="btnSubmit" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-indigo-500/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+          <span>Proses Sekarang</span>
+          <i class="fa-solid fa-arrow-right text-sm"></i>
+        </button>
+
+        <div id="loader" class="hidden flex-col items-center justify-center py-8 space-y-3">
+          <div class="w-10 h-10 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin"></div>
+          <p class="text-xs text-indigo-400 font-medium tracking-wide">Sedang memproses data ke server...</p>
+        </div>
+
+        <div id="resultContainer" class="hidden space-y-3 animate-fade-in">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400">Hasil Output:</h4>
+            <button onclick="copyResult()" class="text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-md transition-all">
+              <i class="fa-regular fa-copy"></i> Salin
+            </button>
+          </div>
+          <div id="resultContent" class="w-full bg-slate-950/80 border border-white/5 rounded-xl p-4 font-mono text-xs text-slate-300 overflow-x-auto max-h-60 whitespace-pre-wrap"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-white/5 py-8 text-center text-sm text-slate-500 mt-20">
+    <p>&copy; 2026 <span class="text-slate-400 font-semibold">Kyy's Tools Web</span>. Created with smooth vibes.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Inisialisasi Animasi AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-quad'
+    });
+
+    let currentToolId = '';
+
+    // Peta Path Endpoint Internal Proxy Vercel
+    const apiEndpoints = {
+      'ai-gemini': '/api/fetch-tool?endpoint=/api/ai/gemini&paramName=text',
+      'dl-tiktok': '/api/fetch-tool?endpoint=/api/download/tiktok&paramName=url',
+      'dl-pinterest': '/api/fetch-tool?endpoint=/api/download/pinterest&paramName=url',
+      's-pinterest': '/api/fetch-tool?endpoint=/api/search/pinterest&paramName=query',
+      'img2prompt': '/api/fetch-tool?endpoint=/api/tools/img2prompt&paramName=url',
+      'removebg': '/api/fetch-tool?endpoint=/api/tools/removebg&paramName=url',
+      'tofigure': '/api/fetch-tool?endpoint=/api/editor/tofigure&paramName=url'
+    };
+
+    function openModal(id, title, icon, desc, isUrl = false) {
+      currentToolId = id;
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDescription').innerText = desc;
+      
+      const iconEl = document.getElementById('modalIcon');
+      iconEl.className = `fa-solid ${icon} text-xl`;
+      
+      const inputEl = document.getElementById('toolInput');
+      inputEl.value = '';
+      inputEl.placeholder = isUrl ? "https://example.com/link-media-disini" : "Ketik instruksi / kata kunci disini...";
+      document.getElementById('inputLabel').innerText = isUrl ? "Masukkan Tautan / URL" : "Masukkan Kata Kunci / Teks";
+
+      document.getElementById('resultContainer').classList.add('hidden');
+      document.getElementById('resultContent').innerText = '';
+
+      // Tampilkan Modal dengan animasi halus
+      const modal = document.getElementById('toolModal');
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.querySelector('.glass-card').classList.remove('scale-95');
+      }, 50);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('toolModal');
+      modal.classList.add('opacity-0');
+      modal.querySelector('.glass-card').classList.add('scale-95');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    function clearInput() {
+      document.getElementById('toolInput').value = '';
+    }
+
+    async function executeTool() {
+      const inputVal = document.getElementById('toolInput').value.trim();
+      if (!inputVal) {
+        alert('Input tidak boleh kosong!');
+        return;
+      }
+
+      const loader = document.getElementById('loader');
+      const btnSubmit = document.getElementById('btnSubmit');
+      const resultContainer = document.getElementById('resultContainer');
+      const resultContent = document.getElementById('resultContent');
+
+      loader.classList.remove('hidden');
+      btnSubmit.setAttribute('disabled', 'true');
+      btnSubmit.classList.add('opacity-50');
+      resultContainer.classList.add('hidden');
+
+      try {
+        const baseProxyUrl = apiEndpoints[currentToolId];
+        // Menggabungkan parameter input ke dalam fungsi serverless proxy
+        const finalUrl = `${baseProxyUrl}&value=${encodeURIComponent(inputVal)}`;
+
+        const response = await fetch(finalUrl);
+        const data = await response.json();
+
+        resultContainer.classList.remove('hidden');
+        
+        // Memformat output agar lebih rapi saat ditampilkan di JSON box
+        if (data.error) {
+          resultContent.innerText = `Error dari Server:\n${data.message || JSON.stringify(data, null, 2)}`;
+        } else {
+          resultContent.innerText = JSON.stringify(data, null, 2);
+        }
+      } catch (err) {
+        resultContainer.classList.remove('hidden');
+        resultContent.innerText = `Terjadi kesalahan saat memproses API:\n${err.message}`;
+      } finally {
+        loader.classList.add('hidden');
+        btnSubmit.removeAttribute('disabled');
+        btnSubmit.classList.remove('opacity-50');
+      }
+    }
+
+    function copyResult() {
+      const text = document.getElementById('resultContent').innerText;
+      if (!text) return;
+      navigator.clipboard.writeText(text);
+      alert('Berhasil menyalin hasil ke papan klip!');
+    }
+
+    // Menutup modal jika area luar diklik
+    window.onclick = function(event) {
+      const modal = document.getElementById('toolModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
